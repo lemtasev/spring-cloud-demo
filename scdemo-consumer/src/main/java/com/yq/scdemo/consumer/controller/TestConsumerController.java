@@ -36,4 +36,10 @@ public class TestConsumerController {
         return map;
     }
 
+    @GetMapping("/hy")
+    public Map testHystrix() {
+        Map<String, Object> map = testCloudService.testHystrix();
+        return map;
+    }
+
 }

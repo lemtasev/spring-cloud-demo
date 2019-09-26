@@ -14,6 +14,13 @@
     <name>scdemo-cloud-demo</name>
     <description>Demo project for Spring Boot （Spring Cloud）</description>
 
+    <modules>
+        <module>scdemo-api</module>
+        <module>scdemo-server</module>
+        <module>scdemo-provider</module>
+        <module>scdemo-consumer</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>

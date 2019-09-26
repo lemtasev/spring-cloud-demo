@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestOperations;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.yq.scdemo")
 // @EnableDiscoveryClient // 可省略
 @EnableFeignClients(basePackages = "com.yq.scdemo.api.*")
 public class ScdemoConsumerApplication {

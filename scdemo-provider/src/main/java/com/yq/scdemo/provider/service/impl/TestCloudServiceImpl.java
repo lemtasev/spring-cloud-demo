@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,20 @@ public class TestCloudServiceImpl implements ITestCloudService {
         map.put("serverPort", serverPort);
         map.put("eurekaInstanceAppName", eurekaInstanceAppName);
         map.put("me", "provider");
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> testHystrix() {
+        LocalTime now = LocalTime.now();
+        int minute = now.getMinute();
+        try {
+            Thread.sleep(minute % 2 == 0 ? 0 : 10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Map<String, Object> map = new HashMap<>();
+        map.put("msg", "熔断器测试接口，分钟数为单数则等待10秒。");
         return map;
     }
 }
